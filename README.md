@@ -46,4 +46,7 @@ python Future_Arbitrage_Runbacktest.py
 
 ## The Backtest result
 
-![](image/backtest_result.png)
+<img src="https://github.com/RyanWangZf/Quant_Investment_Course/raw/master/image/backtest_result.PNG">
+
+
+
