@@ -2,6 +2,8 @@
 
 The project code for the course *Introduction to Quant Investment* by Professor Jianwu Lin in Tsinghua Berkeley Shenzhen Institute.
 
+
+
 # How to demo
 
 ```shell
@@ -9,9 +11,13 @@ The project code for the course *Introduction to Quant Investment* by Professor 
 python run_top_corr.py
 # Find the cointegration between the futures
 python run_cointeg.py
+# Run backtest, need Autotrder
+python Future_Arbitrage_Runbacktest.py
 ```
 
-## The demo result
+
+
+## The Cointegrated Pairs
 
 | s1           | s2           | pvalue   | mean     | std      | name                           |
 | ------------ | ------------ | -------- | -------- | -------- | ------------------------------ |
@@ -36,3 +42,8 @@ python run_cointeg.py
 - **pvalue**: the significance value of the cointegration test
 - **mean, std**: the mean and standard deviation of the diff price between future s1 and s2
 
+
+
+## The Backtest result
+
+![](image/backtest_result.png)

@@ -3,8 +3,14 @@ import numpy as np
 import pandas as pd
 import time
 import pdb
+import sys
 
+sys.path.append(".")
 from atrader import *
+
+def read_rule():
+    df = pd.read_csv("rule/trade_rule.csv")
+    return df
 
 def get_codes_list():
     target_list = []
