@@ -99,6 +99,7 @@ def build_rule(pair_path):
     # "build trading rules with p-value"
     df_pair = pd.read_csv(pair_path) # cols=[S1,S2,pvalue]
     up_list,down_list,w_list,s1_s2 = [],[],[],[]
+    mean_list, std_list = [], []
     for idx in df_pair.index:
         code1,code2 = str(df_pair.loc[idx].s1),str(df_pair.loc[idx].s2)
         s1_s2.append(str(set([code1,code2])))
@@ -119,14 +120,16 @@ def build_rule(pair_path):
         diff = ts2 - w1 * ts1
         diff_mean = diff.mean()
         diff_std  = diff.std()
-        up_line = diff_mean + diff_std
-        down_line = diff_mean - diff_std
+        up_line = diff_mean + 0.7 * diff_std
+        down_line = diff_mean - 0.7 * diff_std
         up_list.append(up_line)
         down_list.append(down_line)
         w_list.append(w1)
+        std_list.append(diff_std)
+        mean_list.append(diff_mean)
     
 
-    df_rule = pd.DataFrame({"up":up_list,"down":down_list,"w":w_list,"name":s1_s2},index=df_pair.index)
+    df_rule = pd.DataFrame({"up":up_list,"down":down_list,"w":w_list,"mean":mean_list,"std":std_list,"name":s1_s2,},index=df_pair.index)
     df_rule = pd.concat([df_pair,df_rule],axis=1).reset_index(drop=True)
     df_rule.drop_duplicates(subset="name",inplace=True)
     df_rule = df_rule.sort_values(by="pvalue").reset_index(drop=True)

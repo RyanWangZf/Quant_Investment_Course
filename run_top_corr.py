@@ -11,7 +11,7 @@ from utils import load_data, get_codes_list
 # set global params
 top_cor_path = "top_corr"
 begin_date = "2018-01-01"
-end_date = "2018-03-01"
+end_date = "2018-06-01"
 
 def find_n_top_corr(code,code_list,top_n=3):
     """Given target code and candidate code list,
