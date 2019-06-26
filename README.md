@@ -2,7 +2,7 @@
 
 The project code for the course *Introduction to Quant Investment* by Professor Jianwu Lin in Tsinghua Berkeley Shenzhen Institute.
 
-# Use
+# How to demo
 
 ```shell
 # Find the top correlated futures
@@ -11,7 +11,7 @@ python run_top_corr.py
 python run_cointeg.py
 ```
 
-## Result
+## The demo result
 
 | s1           | s2           | pvalue   | mean     | std      | name                           |
 | ------------ | ------------ | -------- | -------- | -------- | ------------------------------ |
